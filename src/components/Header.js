@@ -1,19 +1,20 @@
 import React from 'react';
+import logo from '../images/logo.svg';
 import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 
 const Header = () => {
   return (
     <Navbar bg="dark" variant="dark">
-      <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+      <img src={logo} className="App-logo" alt="logo" />
+      <Navbar.Brand href="#home">P2PLT</Navbar.Brand>
       <Nav className="mr-auto">
-        <Nav.Link href="#home">Home</Nav.Link>
-        <Nav.Link href="#features">Features</Nav.Link>
-        <Nav.Link href="#pricing">Pricing</Nav.Link>
+        <Nav.Link href="#dashboard">Dashboard</Nav.Link>
+        <Nav.Link href="#create">Track a Loan</Nav.Link>
+        <Nav.Link href="#pay">Payment History</Nav.Link>
       </Nav>
-      <Form inline>
-        <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-        <Button variant="outline-info">Search</Button>
-      </Form>
+      <Nav className="">
+        <Nav.Link href="#account">Account</Nav.Link>
+      </Nav>
     </Navbar>
   )
 }

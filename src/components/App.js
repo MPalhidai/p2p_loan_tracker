@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from '../images/logo.svg';
 import '../stylesheets/App.css';
 
 import Header from './Header';
@@ -9,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <img src={logo} className="App-logo" alt="logo" />
+
       <Dashboard />
     </div>
   );
