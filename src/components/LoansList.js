@@ -1,7 +1,14 @@
 import React from 'react';
+import Container from 'react-bootstrap/Container';
 
 
 
-const LoansList extends React.Component {
+const LoansList = () => {
+  return (
+    <Container>
 
+    </Container>
+  )
 }
+
+export default LoansList;
