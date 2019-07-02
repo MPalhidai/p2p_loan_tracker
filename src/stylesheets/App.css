@@ -31,3 +31,19 @@
     transform: rotate(360deg);
   }
 }
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #343a40;
+  height: 56px;
+  padding: 8px 16px;
+}
+
+.footnote {
+  font-size: 0.8rem;
+  color: #fff;
+  margin-bottom: 0;
+}

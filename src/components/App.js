@@ -3,13 +3,16 @@ import '../stylesheets/App.css';
 
 import Header from './Header';
 import Dashboard from './Dashboard';
+import Footer from './Footer';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <Header />
 
       <Dashboard />
+
+      <Footer />
     </div>
   );
 }
