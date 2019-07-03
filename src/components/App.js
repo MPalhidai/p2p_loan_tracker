@@ -1,4 +1,5 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import '../stylesheets/App.css';
 
 import Header from './Header';
@@ -8,12 +9,14 @@ import LoansList from './LoansList'
 
 const App = () => {
   return (
-    <div className="App">
-      <Header />
-      <Dashboard />
-      <LoansList />
-      <Footer />
-    </div>
+    <Provider store = { store }>
+      <div className="App">
+        <Header />
+        <Dashboard />
+        <LoansList />
+        <Footer />
+      </div>
+    </Provider>
   );
 }
 
