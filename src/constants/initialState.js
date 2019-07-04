@@ -5,7 +5,7 @@ const initialState = {
     lastName: 'Palhidai',
     email: 'mpalhidai@gmail.com',
     accountNumber: 1,
-    loansLent: {
+    loansLent: [
       {
         id: 1,
         principleAmount: 5000,
@@ -30,8 +30,8 @@ const initialState = {
         lender: 'Michael Palhidai',
         lendee: 'Michaela Jenichen'
       },
-    },
-    loansTaken: {
+    ],
+    loansTaken: [
       {
         id: 3,
         principleAmount: 5000,
@@ -56,7 +56,7 @@ const initialState = {
         lender: 'Scott Palhidai',
         lendee: 'Michael Palhidai'
       },
-    }
+    ]
   }
 }
 
