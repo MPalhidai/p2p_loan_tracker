@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
-import taken from './loansTakenReducer';
-import lent from './loansLentReducer';
+import takenState from './loansTakenReducer';
+import lentState from './loansLentReducer';
 
-const reducer = combineReducers({
-  taken: taken,
-  lent: lent
+const rootReducer = combineReducers({
+  takenState,
+  lentState
 })
 
-export default reducer;
+export default rootReducer;

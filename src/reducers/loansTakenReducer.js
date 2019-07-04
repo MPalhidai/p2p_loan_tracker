@@ -5,12 +5,12 @@ const loansTakenReducer = ( state = initialState, action ) => {
   switch (action.type) {
     case CREATE:
       return {
-        loansLent: state.currentUser.loansTaken.push(action.payload)
+        loansTaken: state.loansTaken.push(action.payload)
       };
     case REMOVE:
     // find by id and remove
       return {
-        loansLent: state.currentUser.loansTaken.remove(action.payload)
+        loansTaken: state.loansTaken.remove(action.payload)
       };
     default:
       return state;
