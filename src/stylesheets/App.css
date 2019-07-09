@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  min-height: 100vh;
+  background-color: #e9ecef;
 }
 
 .App-logo {
@@ -43,6 +45,12 @@
   height: 45px;
   border-radius: 100%;
   border: solid 1px #e8e8e8;
+}
+
+.collapsedLoanCard {
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
 }
 
 footer {
