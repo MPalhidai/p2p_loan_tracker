@@ -36,18 +36,40 @@
   margin-bottom: 0;
 }
 
+.userCircle {
+  text-align: center;
+  line-height: 45px;
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
+  border: solid 1px #e8e8e8;
+}
+
 footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   text-align: center;
   background-color: #343a40;
-  height: 56px;
+  min-height: 56px;
   padding: 8px 16px;
+  color: #fff;
+}
+
+.footerIcons {
+
+}
+
+.footerLink {
+  color: #fff;
+  margin: 0.5rem;
+  padding: 0;
+  display: inline;
+  font-size: 2rem;
+}
+
+.footerLink:hover {
+  color: gray;
 }
 
 .footnote {
   font-size: 0.8rem;
-  color: #fff;
   margin-bottom: 0;
 }

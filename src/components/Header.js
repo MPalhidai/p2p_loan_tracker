@@ -1,6 +1,8 @@
 import React from 'react';
 import logo from '../images/logo.svg';
 import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
   return (
@@ -13,7 +15,11 @@ const Header = () => {
         <Nav.Link href="#pay">Payment History</Nav.Link>
       </Nav>
       <Nav className="">
-        <Nav.Link href="#account">Account</Nav.Link>
+        <Nav.Link href="#account">
+          <div className = 'userCircle'>
+            <FontAwesomeIcon icon={faUser} />
+          </div>
+        </Nav.Link>
       </Nav>
     </Navbar>
   )
