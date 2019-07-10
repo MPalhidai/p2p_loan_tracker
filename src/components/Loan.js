@@ -9,7 +9,24 @@ class Loan extends React.Component {
     super()
   }
 
+  state = {
+    opened: false
+  }
+
   render(){
+    const handleClick = () => {
+      if(this.state.opened) {
+        this.setState({
+          opened: false
+        })
+      } else {
+        this.setState({
+          opened: true
+        })
+      }
+      return null
+    }
+
     return (
       <Card>
         <Card.Header>
@@ -24,15 +41,8 @@ class Loan extends React.Component {
               Interest Rate: { this.props.interestRate * 100 }%
             </p>
           </div>
-          <Accordion.Toggle as={Button} variant="link" eventKey={ this.props.collapseKey }>
-            {
-              // if(clicked ) {
-              //  <FontAwesomeIcon icon={faChevronUp} />
-              // } else {
-              //  <FontAwesomeIcon icon={faChevronDown} />
-              // }
-            }
-            <FontAwesomeIcon icon={faChevronDown} />
+          <Accordion.Toggle as={Button} variant="link" eventKey={ this.props.collapseKey } onClick={ this.handleClick }>
+            {this.state.opened ? <FontAwesomeIcon icon={faChevronUp} /> : <FontAwesomeIcon icon={faChevronDown} />}
           </Accordion.Toggle>
         </Card.Header>
         <Accordion.Collapse eventKey={this.props.collapseKey }>
