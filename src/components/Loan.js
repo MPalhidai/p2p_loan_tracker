@@ -5,52 +5,26 @@ import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
 class Loan extends React.Component {
 
-  constructor(){
-    super()
-  }
-
-  state = {
-    opened: false
+  constructor(props){
+    super(props)
   }
 
   render(){
-    const handleClick = () => {
-      if(this.state.opened) {
-        this.setState({
-          opened: false
-        })
-      } else {
-        this.setState({
-          opened: true
-        })
-      }
-      return null
-    }
-
     return (
       <Card>
         <Card.Header>
-          <div class="collapsedLoanCard">
-            <p>
-              Current Value: { this.props.currentValue }
-            </p>
-            <p>
-              Lent To: { this.props.lendee }
-            </p>
-            <p>
-              Interest Rate: { this.props.interestRate * 100 }%
-            </p>
+          <div>
+            You lent <strong>${ this.props.principleAmount } </strong>
+            to <strong>{ this.props.lendee } </strong>
+            at <strong>{ this.props.interestRate * 100 }% </strong>
+            on <strong>{ this.props.initiationDate }</strong>.
+            <Accordion.Toggle as={Button} variant="link" eventKey={ this.props.collapseKey }>
+              <FontAwesomeIcon icon={faChevronDown} />
+            </Accordion.Toggle>
           </div>
-          <Accordion.Toggle as={Button} variant="link" eventKey={ this.props.collapseKey } onClick={ this.handleClick }>
-            {this.state.opened ? <FontAwesomeIcon icon={faChevronUp} /> : <FontAwesomeIcon icon={faChevronDown} />}
-          </Accordion.Toggle>
         </Card.Header>
-        <Accordion.Collapse eventKey={this.props.collapseKey }>
+        <Accordion.Collapse eventKey={ this.props.collapseKey }>
           <Card.Body>
-            Principle Amount: { this.props.principleAmount }
-            <br />
-            Initiation Date: { this.props.initiationDate }
-            <br />
             Ammount Paid: { this.props.ammountPaid }
             <br />
             Interest Accrued: { this.props.interestAccrued }

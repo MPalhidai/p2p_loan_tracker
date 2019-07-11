@@ -47,18 +47,16 @@
   border: solid 1px #e8e8e8;
 }
 
-.collapsedLoanCard {
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
-}
-
 footer {
   text-align: center;
   background-color: #343a40;
   min-height: 56px;
   padding: 8px 16px;
   color: #fff;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
 
 .footerIcons {

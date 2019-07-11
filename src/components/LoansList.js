@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 class LoansList extends React.Component {
   render() {
     return (
-      <Container>
+      <Container className="py-5">
         <Accordion>
           {
             this.props.loansLent.map( (loan, idx) => (
