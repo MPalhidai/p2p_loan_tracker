@@ -47,6 +47,12 @@
   border: solid 1px #e8e8e8;
 }
 
+.expandButton {
+  border: 1px solid lightgray;
+  padding: 4px 8px;
+  float: right;
+}
+
 footer {
   text-align: center;
   background-color: #343a40;
@@ -57,10 +63,6 @@ footer {
   left: 0;
   bottom: 0;
   width: 100%;
-}
-
-.footerIcons {
-
 }
 
 .footerLink {

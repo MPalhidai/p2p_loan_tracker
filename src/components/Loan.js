@@ -18,7 +18,7 @@ class Loan extends React.Component {
             to <strong>{ this.props.lendee } </strong>
             at <strong>{ this.props.interestRate * 100 }% </strong>
             on <strong>{ this.props.initiationDate }</strong>.
-            <Accordion.Toggle as={Button} variant="link" eventKey={ this.props.collapseKey }>
+            <Accordion.Toggle as={Button} variant="light" eventKey={ this.props.collapseKey } className="expandButton">
               <FontAwesomeIcon icon={faChevronDown} />
             </Accordion.Toggle>
           </div>
