@@ -19,7 +19,7 @@ class LoansList extends React.Component {
                 principleAmount = { loan.principleAmount }
                 interestRate = { loan.interestRate }
                 initiationDate = { loan.initiationDate }
-                ammountPaid = { loan.ammountPaid }
+                ammountPaid = { loan.amountPaid }
                 interestAccrued = { loan.interestAccrued }
                 percentPaid = { loan.percentPaid }
                 lender = { loan.lender }

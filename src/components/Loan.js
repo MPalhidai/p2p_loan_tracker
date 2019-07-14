@@ -25,7 +25,7 @@ class Loan extends React.Component {
         </Card.Header>
         <Accordion.Collapse eventKey={ this.props.collapseKey }>
           <Card.Body>
-            Ammount Paid: { this.props.ammountPaid }
+            Amount Paid: { this.props.amountPaid }
             <br />
             Interest Accrued: { this.props.interestAccrued }
             <br />
