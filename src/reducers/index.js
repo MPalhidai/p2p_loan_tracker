@@ -1,10 +1,8 @@
 import { combineReducers } from 'redux'
-import takenState from './loansTakenReducer';
-import lentState from './loansLentReducer';
+import loansState from './loansReducer';
 
 const rootReducer = combineReducers({
-  takenState,
-  lentState
+  loansState
 })
 
 export default rootReducer;

@@ -14,7 +14,8 @@ class Loan extends React.Component {
       <Card>
         <Card.Header>
           <div>
-            You lent <strong>${ this.props.principleAmount } </strong>
+            <strong>{ this.props.lender } </strong>
+            lent <strong>${ this.props.principleAmount } </strong>
             to <strong>{ this.props.lendee } </strong>
             at <strong>{ this.props.interestRate * 100 }% </strong>
             on <strong>{ this.props.initiationDate }</strong>.

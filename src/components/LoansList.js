@@ -11,7 +11,7 @@ class LoansList extends React.Component {
       <Container className="py-5">
         <Accordion>
           {
-            this.props.loansLent.map( (loan, idx) => (
+            this.props.loans.map( (loan, idx) => (
               <Loan
                 key = { loan.id }
                 collapseKey = { idx }
@@ -35,7 +35,7 @@ class LoansList extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    loansLent: state.lentState.loansLent
+    loans: state.loansState.loans
   };
 }
 
