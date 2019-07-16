@@ -8,11 +8,10 @@ const Header = () => {
   return (
     <Navbar bg="dark" variant="dark">
       <img src={logo} className="App-logo" alt="logo" />
-      <Navbar.Brand href="#home">P2PLT</Navbar.Brand>
+      <Navbar.Brand href="/loans">P2PLT</Navbar.Brand>
       <Nav className="mr-auto">
-        <Nav.Link href="#dashboard">Dashboard</Nav.Link>
-        <Nav.Link href="#create">Track a Loan</Nav.Link>
-        <Nav.Link href="#pay">Payment History</Nav.Link>
+        <Nav.Link href="/loans">Dashboard</Nav.Link>
+        <Nav.Link href="/addLoan">Track a Loan</Nav.Link>
       </Nav>
       <Nav className="">
         <Nav.Link href="#account">
