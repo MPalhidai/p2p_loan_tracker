@@ -15,7 +15,7 @@ const Routes = () => {
           <LoansList />
         </div>
       } />
-      <Route exact path = '/loans/:id' />
+      <Route exact path = { `/loans/show/:id` } component = { Loan } />
       <Route exact path = '/loans/new' component = { AddLoan } />
     </Switch>
   )

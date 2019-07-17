@@ -2,6 +2,7 @@ import React from 'react';
 import { Accordion, Card, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 class Loan extends React.Component {
 
@@ -31,6 +32,8 @@ class Loan extends React.Component {
             Interest Accrued: { this.props.interestAccrued }
             <br />
             Percent Paid: { this.props.percentPaid * 100 }%
+            <br />
+            <Link to = { `/loans/show/${this.props.key}` }>Payment History</Link>
           </Card.Body>
         </Accordion.Collapse>
       </Card>
