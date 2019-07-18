@@ -14,6 +14,7 @@ class LoansList extends React.Component {
             this.props.loans.map( (loan, idx) => (
               <Loan
                 key = { loan.id }
+                historyKey = { loan.id }
                 collapseKey = { idx }
                 currentValue = { loan.currentValue }
                 principleAmount = { loan.principleAmount }

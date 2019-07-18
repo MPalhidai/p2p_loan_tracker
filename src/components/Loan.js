@@ -33,7 +33,7 @@ class Loan extends React.Component {
             <br />
             Percent Paid: { this.props.percentPaid * 100 }%
             <br />
-            <Link to = { `/loans/show/${this.props.key}` }>Payment History</Link>
+            <Link to = { `/loans/show/${this.props.historyKey}` }>Payment History</Link>
           </Card.Body>
         </Accordion.Collapse>
       </Card>
