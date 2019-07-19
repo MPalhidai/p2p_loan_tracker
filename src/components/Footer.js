@@ -14,7 +14,7 @@ const Footer = () => {
           <FontAwesomeIcon icon={faGlobeAmericas} />
         </Nav.Link>
       </div>
-      <p class = "footnote">
+      <p className = "footnote">
         created by Michael Palhidai
       </p>
     </footer>

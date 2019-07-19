@@ -3,6 +3,8 @@ import { Container, Form, Button, Row, Col } from 'react-bootstrap';
 
 
 // eventually make this into a modal one question at a time.
+// add monthly payment slider
+// terminationDate should be calculalated based on monthly payment and futureValue
 
 class AddLoan extends React.Component {
 
@@ -10,28 +12,37 @@ class AddLoan extends React.Component {
     lendee: 'this person',
     principleAmount: 0,
     interestRate: 0,
-    initiationDate: null,
+    initiationDate: "2019-07-18",
     amountPaid: 0,
-    terminationDate: null,
+    terminationDate: "2020-07-18",
     email: null,
     phoneNumber: null,
-    value: null
+    futureValue: 0
   }
+
+  MS_PER_YEAR = 1000 * 60 * 60 * 24 * 365.2422; // milliseconds per year
+  COMPOUND = 365; // compounds 365 times per year
 
   handleChange = event => {
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
+      futureValue: this.calculateValue() // calculation one change behind because it needs async
     });
-    this.calculateValue()
+  }
+
+  dateDiffInDays = (a, b) => {
+    const utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
+    const utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
+    return (utc2 - utc1) / this.MS_PER_YEAR;
   }
 
   calculateValue = () => {
-    // A = P (1 + r/n) (nt)
-
-
-    // this.setState({
-    //   value:
-    // })
+    // A = P (1 + r/n)^(nt)
+    const init = new Date(this.state.initiationDate)
+    const term = new Date(this.state.terminationDate)
+    const time = this.dateDiffInDays(init, term)
+    const amount = (this.state.principleAmount - this.state.amountPaid) * (1 + this.state.interestRate / (100 * this.COMPOUND)) ** (this.COMPOUND * time)
+    return amount.toFixed(2)
   }
 
   render(){
@@ -54,7 +65,7 @@ class AddLoan extends React.Component {
           <Form.Group as={Row} controlId="formPrincipleAmount" className='justify-content-between align-items-center'>
             <Form.Label column sm="4" md="3" lg="2">Principle Amount:</Form.Label>
             <Col sm="8" md="7" lg="6">
-              <Form.Control type="number" name="principleAmount" placeholder="$5000" />
+              <Form.Control type="number" name="principleAmount" placeholder="$5000" onChange={this.handleChange} />
             </Col>
           </Form.Group>
 
@@ -64,7 +75,7 @@ class AddLoan extends React.Component {
           <Form.Group as={Row} controlId="formRate" className='justify-content-between align-items-center'>
             <Form.Label column sm="4" md="3" lg="2">Interest Rate:</Form.Label>
             <Col sm="8" md="7" lg="6">
-              <Form.Control type="number" name="interestRate" placeholder="5.55%" />
+              <Form.Control type="number" name="interestRate" placeholder="5.55%" onChange={this.handleChange} />
             </Col>
           </Form.Group>
 
@@ -113,11 +124,11 @@ class AddLoan extends React.Component {
               <Form.Control type="tel" placeholder="1(800)867-5309" name="phoneNumber" onChange={this.handleChange} />
             </Col>
           </Form.Group>
-        </Form>
 
-        <p className="text-muted">
-          Value at termination date: {this.state.value}
-        </p>
+          <p className="text-muted">
+            Value at termination date: ${this.state.futureValue}
+          </p>
+        </Form>
 
         <Button variant="outline-secondary" type="submit">
           Submit
