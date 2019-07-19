@@ -6,7 +6,7 @@ import { faGlobeAmericas } from '@fortawesome/free-solid-svg-icons';
 const Footer = () => {
   return (
     <footer>
-      <div class = "footerIcons">
+      <div className = "footerIcons">
         <Nav.Link href='https://www.michaelpalhidai.com/' className='footerLink'>
           <FontAwesomeIcon icon={faGithub} />
         </Nav.Link>
