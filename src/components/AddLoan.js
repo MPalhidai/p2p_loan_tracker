@@ -22,12 +22,20 @@ class AddLoan extends React.Component {
 
   MS_PER_YEAR = 1000 * 60 * 60 * 24 * 365.2422; // milliseconds per year
   COMPOUND = 365; // compounds 365 times per year
+  RESOLVE = 250; // resolve async in 250 milliseconds
 
   handleChange = event => {
-    this.setState({
-      [event.target.name]: event.target.value,
-      futureValue: this.calculateValue() // calculation one change behind because it needs async
-    });
+    this.setState({ [event.target.name]: event.target.value });
+
+    let promise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(this.calculateValue())
+      }, this.RESOLVE)
+    })
+
+    promise.then( value => {
+      this.setState({ futureValue: value });
+    })
   }
 
   dateDiffInDays = (a, b) => {
