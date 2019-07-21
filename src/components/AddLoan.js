@@ -1,5 +1,7 @@
 import React from 'react';
 import { Container, Form, Button, Row, Col } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { createLoan } from '../actions/index';
 
 
 // eventually make this into a modal one question at a time.
@@ -35,6 +37,22 @@ class AddLoan extends React.Component {
 
     promise.then( value => {
       this.setState({ futureValue: value });
+    })
+  }
+
+  handleSubmit = event => {
+    event.preventDefault();
+    this.props.createLoan(this.state)
+    this.setState({
+      lendee: 'this person',
+      principleAmount: 0,
+      interestRate: 0,
+      initiationDate: "2019-07-18",
+      amountPaid: 0,
+      terminationDate: "2020-07-18",
+      email: null,
+      phoneNumber: null,
+      futureValue: 0
     })
   }
 
@@ -129,7 +147,7 @@ class AddLoan extends React.Component {
           <Form.Group as={Row} controlId="formPhone" className='justify-content-between align-items-center'>
             <Form.Label column sm="4" md="3" lg="2">Phone:</Form.Label>
             <Col sm="8" md="7" lg="6">
-              <Form.Control type="tel" placeholder="1(800)867-5309" name="phoneNumber" onChange={this.handleChange} />
+              <Form.Control type="tel" placeholder="1 (800) 867-5309" name="phoneNumber" onChange={this.handleChange} />
             </Col>
           </Form.Group>
 
@@ -138,7 +156,7 @@ class AddLoan extends React.Component {
           </p>
         </Form>
 
-        <Button variant="outline-secondary" type="submit">
+        <Button variant="outline-secondary" type="submit" onSubmit={this.handleSubmit}>
           Submit
         </Button>
       </Container>
@@ -146,4 +164,12 @@ class AddLoan extends React.Component {
   }
 }
 
-export default AddLoan;
+const mapStateToProps = state => {
+
+}
+
+const mapDispatchToProps = {
+  createLoan
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddLoan);
