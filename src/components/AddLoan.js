@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Form, Button, Row, Col } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { createLoan } from '../actions/index';
+import { MS_PER_YEAR, COMPOUND, RESOLVE } from '../constants/calculations';
 
 
 // eventually make this into a modal one question at a time.
@@ -10,21 +11,20 @@ import { createLoan } from '../actions/index';
 
 class AddLoan extends React.Component {
 
-  state = {
-    lendee: 'this person',
-    principleAmount: 0,
-    interestRate: 0,
-    initiationDate: "2019-07-18",
-    amountPaid: 0,
-    terminationDate: "2020-07-18",
-    email: null,
-    phoneNumber: null,
-    futureValue: 0
+  constructor(props) {
+    super(props)
+    this.state = {
+      lendee: 'this person',
+      principleAmount: 0,
+      interestRate: 0,
+      initiationDate: "2019-07-18",
+      amountPaid: 0,
+      terminationDate: "2020-07-18",
+      email: null,
+      phoneNumber: null,
+      futureValue: 0
+    }
   }
-
-  MS_PER_YEAR = 1000 * 60 * 60 * 24 * 365.2422; // milliseconds per year
-  COMPOUND = 365; // compounds 365 times per year
-  RESOLVE = 250; // resolve async in 250 milliseconds
 
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
@@ -32,7 +32,7 @@ class AddLoan extends React.Component {
     let promise = new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(this.calculateValue())
-      }, this.RESOLVE)
+      }, RESOLVE)
     })
 
     promise.then( value => {
@@ -56,18 +56,19 @@ class AddLoan extends React.Component {
     })
   }
 
-  dateDiffInDays = (a, b) => {
+  dateDiffInYears = (a, b) => {
     const utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
     const utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
-    return (utc2 - utc1) / this.MS_PER_YEAR;
+    return (utc2 - utc1) / MS_PER_YEAR;
   }
 
   calculateValue = () => {
     // A = P (1 + r/n)^(nt)
     const init = new Date(this.state.initiationDate)
     const term = new Date(this.state.terminationDate)
-    const time = this.dateDiffInDays(init, term)
-    const amount = (this.state.principleAmount - this.state.amountPaid) * (1 + this.state.interestRate / (100 * this.COMPOUND)) ** (this.COMPOUND * time)
+    const time = this.dateDiffInYears(init, term)
+    console.log(time)
+    const amount = (this.state.principleAmount - this.state.amountPaid) * (1 + this.state.interestRate / 100 / COMPOUND) ** (COMPOUND * time)
     return amount.toFixed(2)
   }
 
@@ -151,12 +152,13 @@ class AddLoan extends React.Component {
             </Col>
           </Form.Group>
 
+
           <p className="text-muted">
             Value at termination date: ${this.state.futureValue}
           </p>
         </Form>
 
-        <Button variant="outline-secondary" type="submit" onSubmit={this.handleSubmit}>
+        <Button variant="outline-secondary" type="submit" onClick={this.handleSubmit}>
           Submit
         </Button>
       </Container>
@@ -165,7 +167,9 @@ class AddLoan extends React.Component {
 }
 
 const mapStateToProps = state => {
+  return {
 
+  }
 }
 
 const mapDispatchToProps = {

@@ -3,6 +3,7 @@ import { Nav } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faGlobeAmericas } from '@fortawesome/free-solid-svg-icons';
+
 const Footer = () => {
   return (
     <footer>

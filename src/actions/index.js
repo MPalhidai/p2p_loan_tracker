@@ -6,6 +6,13 @@ import {
 export const createLoan = loan => {
   return {
     type: CREATE,
-    loan: loan
+    payload: loan
+  }
+}
+
+export const removeLoan = id => {
+  return {
+    type: REMOVE,
+    payload: id
   }
 }

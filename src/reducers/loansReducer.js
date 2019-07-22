@@ -4,6 +4,7 @@ import { CREATE, REMOVE } from '../constants/actions';
 const loansLentReducer = ( state = initialState, action ) => {
   switch (action.type) {
     case CREATE:
+      console.log(action.payload)
       return {
         loans: state.loans.push(action.payload)
       };
