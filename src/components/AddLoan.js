@@ -14,6 +14,7 @@ class AddLoan extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      id: 5,
       lendee: 'this person',
       principleAmount: 0,
       interestRate: 0,
@@ -43,7 +44,9 @@ class AddLoan extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
     this.props.createLoan(this.state)
+    let increment = this.state.id + 1
     this.setState({
+      id: increment,
       lendee: 'this person',
       principleAmount: 0,
       interestRate: 0,

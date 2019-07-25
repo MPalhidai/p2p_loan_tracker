@@ -36,7 +36,7 @@ class LoansList extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    loans: state.loansState.loans
+    loans: state.loansState
   };
 }
 

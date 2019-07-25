@@ -12,14 +12,10 @@ const Header = () => {
   return (
     <Navbar bg="dark" variant="dark">
       <img src={logo} className="App-logo" alt="logo" />
-      <Navbar.Brand href="/loans">P2PLT</Navbar.Brand>
+      <Navbar.Brand className="header-brand" href="/loans">P2PLT</Navbar.Brand>
       <Nav className="mr-auto">
-
-        <Nav.Link>
-          <Link to="/loans">Dashboard</Link>
-        </Nav.Link>
-
-        <Nav.Link href="/loans/new">Track a Loan</Nav.Link>
+          <Link className="header-link" to="/loans">Dashboard</Link>
+          <Link className="header-link" to="/loans/new">Track a Loan</Link>
       </Nav>
       <Nav className="">
         <Nav.Link href="#account">
