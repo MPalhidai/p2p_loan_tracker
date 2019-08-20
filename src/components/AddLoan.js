@@ -4,11 +4,6 @@ import { connect } from 'react-redux';
 import { createLoan } from '../actions/index';
 import { MS_PER_YEAR, COMPOUND, RESOLVE } from '../constants/calculations';
 
-
-// eventually make this into a modal one question at a time.
-// add monthly payment slider
-// terminationDate should be calculalated based on monthly payment and futureValue
-
 class AddLoan extends React.Component {
 
   constructor(props) {
@@ -42,7 +37,7 @@ class AddLoan extends React.Component {
   }
 
   handleSubmit = event => {
-    event.preventDefault();
+    event.preventDefault()
     this.props.createLoan(this.state)
     let increment = this.state.id + 1
     this.setState({
@@ -57,12 +52,13 @@ class AddLoan extends React.Component {
       phoneNumber: null,
       futureValue: 0
     })
+    this.handleRouteChoice()
   }
 
   dateDiffInYears = (a, b) => {
-    const utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
-    const utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
-    return (utc2 - utc1) / MS_PER_YEAR;
+    const utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate())
+    const utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate())
+    return (utc2 - utc1) / MS_PER_YEAR
   }
 
   calculateValue = () => {
