@@ -40,28 +40,35 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 ## Future Additions
 
 ### AddLoan
-* eventually make this into a modal one question at a time.
-* add monthly payment slider
-* terminationDate should be calculated based on monthly payment and futureValue
-* after submit alert with two buttons to stay and submit another loan or go back to dashboard
+* Eventually make this into a modal one question at a time.
+* Add monthly payment slider
+* TerminationDate should be calculated based on monthly payment and futureValue
+* After submit alert with two buttons to stay and submit another loan or go back to dashboard
 
 ### ShowLoan
-* render payment history
-* render the loan clicked on from the dashboard already expanded and in a container
-* ability to delete a loan. No editing
+* Render payment history
+* Render the loan clicked on from the dashboard already expanded and in a container
+* Ability to delete a loan. No editing
 
 ### Dashboard
 * D3 graph with all loans and transactions
-* bar graph multiple transactions
-* needs user defined time scaled x-axis
-* loans lent negative bar
-* payments received positive bar
+* Bar graph multiple transactions
+* Needs user defined time scaled x-axis
+* Loans lent negative bar
+* Payments received positive bar
 * D3 line graph overlay with interest accrued
 
 ### API Async actions
-* all actions
-* ability to send to 2 APIs, 1 Rails 1 Node -> Express
+* All actions
+* Ability to send to 2 APIs, 1 Rails 1 Node -> Express
 
 ### MISC
-* new favicon
-* new title
+* New favicon
+* New title
+* Reorganize file structure as if building models and individual actions
+* Add OmniAuth facebook and or google to sign-up and login
+
+### Header
+* Account link needs to be a react router link
+* Needs to include sign in, sign out, sign up, delete
+* Email and notification history would be nice to have

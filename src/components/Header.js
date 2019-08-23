@@ -5,9 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
-// bootstrap link is a link and not a react router url change
-// need to refactor to match bootstrap style but with react router Link
-
 const Header = () => {
   return (
     <Navbar bg="dark" variant="dark">
